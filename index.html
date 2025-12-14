@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Strawberry</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-box">
+  <h2>Strawberry Access</h2>
+  <input id="username" placeholder="Username">
+  <input id="password" type="password" placeholder="Password">
+  <button onclick="login()">Enter</button>
+  <p id="error"></p>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="content" style="display:none;">
+
+  <h1>🍓 Strawberry</h1>
+
+  <input id="search" placeholder="Search..." onkeyup="searchVideos()">
+
+  <!-- CATEGORY BUTTONS (safe renamed text) -->
+  <div id="categories">
+    <button class="active" onclick="filterVideos('all', this)">All</button>
+    <button onclick="filterVideos('fart', this)">🍓 A</button>
+    <button onclick="filterVideos('digestion', this)">🍓 B</button>
+    <button onclick="filterVideos('extras', this)">🍓 C</button>
+  </div>
+
+  <!-- VIDEOS -->
+  <div class="video-grid">
+
+    <!-- ===== CATEGORY A (FART) ===== -->
+    <div class="video fart" data-title="Mrs. Graves">
+      <img src="https://youtu.be/5sEXFlzhBZw?si=LTzV2XVLkmq47Cco"
+           onclick="openVideo('5sEXFlzhBZw')">
+      <p>Mrs. Graves</p>
+    </div>
+
+    <div class="video fart" data-title="Ellen Joe 1">
+      <img src="https://youtu.be/tMD2whOZoQI?si=wLYZeNS87U6q6OOk"
+           onclick="openVideo('tMD2whOZoQI')">
+      <p>Ellen Joe 1</p>
+    </div>
+
+    <div class="video fart" data-title="Ellen Joe 2">
+      <img src="https://youtu.be/sLXGFBWS76g?si=LRCuJIm2XUKrpNkS"
+           onclick="openVideo('sLXGFBWS76g')">
+      <p>Ellen Joe 2</p>
+    </div>
+
+    <div class="video fart" data-title="Late Night Farts">
+      <img src="https://youtu.be/SEcgkN97Aqo?si=Q13S9dgTOF24zTxz"
+           onclick="openVideo('SEcgkN97Aqo')">
+      <p>A4</p>
+    </div>
+
+    <div class="video fart" data-title="Makima">
+      <img src="https://youtu.be/fLig_Ft0Do8?si=SDsJRJIttJF9VyAX"
+           onclick="openVideo('fLig_Ft0Do8')">
+      <p>Makima</p>
+    </div>
+
+    <!-- ===== CATEGORY B (DIGESTION) ===== -->
+    <div class="video digestion" data-title="Prey POV! Lazy Pred swallows Prey and continues snacking">
+      <img src="https://youtu.be/vBCoNmqR3t0?si=0qB6ShIVQpXeXu2k"
+           onclick="openVideo('vBCoNmqR3t0')">
+      <p>Prey POV! Lazy Pred swallows Prey and continues snacking</p>
+    </div>
+
+    <div class="video digestion" data-title="Pred POV! Lazy Pred swallows Prey and continues snacking">
+      <img src="https://youtu.be/-0Z7hFcmnrQ?si=wlNJ0vNrecb492DG"
+           onclick="openVideo('-0Z7hFcmnrQ')">
+      <p>Pred POV! Lazy Pred swallows Prey and continues snacking</p>
+    </div>
+
+    <div class="video digestion" data-title="A date at a water park with a motherly yet possessive polar bear">
+      <img src="https://youtu.be/RGo7Z9oLtHw?si=JPALrBOf2Hnzc2N-"
+           onclick="openVideo('RGo7Z9oLtHw')">
+      <p>A date at a water park with a motherly yet possessive polar bear</p>
+    </div>
+
+    <div class="video digestion" data-title="Mama bear comforts you during a thunderstorm">
+      <img src="https://youtu.be/yqXHk1RNQO0?si=Lo46C8HJNt6bJF0D"
+           onclick="openVideo('yqXHk1RNQO0')">
+      <p>B4</p>
+    </div>
+
+    <div class="video digestion" data-title="Being Gamer Fuel for your Polar Bear GF">
+      <img src="https://youtu.be/7y0k8dmm41Y?si=jD2ByNPJFSqud9wG"
+           onclick="openVideo('7y0k8dmm41Y')">
+      <p>Being Gamer Fuel for your Polar Bear GF</p>
+    </div>
+
+    <!-- ===== CATEGORY C (EXTRAS) ===== -->
+    <div class="video extras" data-title="C1">
+      <img src="https://img.youtube.com/vi/VIDEO_ID_11/hqdefault.jpg"
+           onclick="openVideo('VIDEO_ID_11')">
+      <p>C1</p>
+    </div>
+
+    <div class="video extras" data-title="C2">
+      <img src="https://img.youtube.com/vi/VIDEO_ID_12/hqdefault.jpg"
+           onclick="openVideo('VIDEO_ID_12')">
+      <p>C2</p>
+    </div>
+
+    <div class="video extras" data-title="C3">
+      <img src="https://img.youtube.com/vi/VIDEO_ID_13/hqdefault.jpg"
+           onclick="openVideo('VIDEO_ID_13')">
+      <p>C3</p>
+    </div>
+
+    <div class="video extras" data-title="C4">
+      <img src="https://img.youtube.com/vi/VIDEO_ID_14/hqdefault.jpg"
+           onclick="openVideo('VIDEO_ID_14')">
+      <p>C4</p>
+    </div>
+
+    <div class="video extras" data-title="C5">
+      <img src="https://img.youtube.com/vi/VIDEO_ID_15/hqdefault.jpg"
+           onclick="openVideo('VIDEO_ID_15')">
+      <p>C5</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- VIDEO MODAL -->
+<div id="modal" onclick="closeVideo()">
+  <iframe id="player" allowfullscreen></iframe>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
